@@ -11,6 +11,7 @@ from fastapi.responses import HTMLResponse
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.api.dependencies import CacheMiddleware, RateLimitMiddleware, TimingMiddleware
 from app.core.config import get_settings
 from app.core.deps import get_db, get_current_user, get_optional_user
 from app.core.logging_config import configure_logging, get_logger
@@ -576,7 +577,7 @@ async def root_dashboard(
 
 
 # Import and include routers
-from app.api import auth, workflows, executions, webhooks, dashboard, notifications, audit, rbac, schema_validation, versions, api_keys, export, bulk, analytics, templates, webhook_configs, integrations
+from app.api import auth, workflows, executions, webhooks, dashboard, notifications, audit, rbac, versions, api_keys, export, bulk, analytics, templates, webhook_configs, integrations
 from app.api.dependencies import CacheMiddleware, RateLimitMiddleware, TimingMiddleware
 from app.web import workflows_router, executions_router, audit as audit_web, dashboard_router
 
@@ -586,7 +587,6 @@ app.include_router(executions.router, prefix="/api/executions", tags=["execution
 app.include_router(notifications.router, prefix="/api", tags=["notifications"])
 app.include_router(audit.router, prefix="/api", tags=["audit"])
 app.include_router(rbac.router, prefix="/api", tags=["rbac"])
-app.include_router(schema_validation.router, tags=["schema-validation"])
 app.include_router(versions.router, tags=["versions"])
 app.include_router(api_keys.router, prefix="/api", tags=["api-keys"])
 app.include_router(export.router, prefix="/api", tags=["export"])

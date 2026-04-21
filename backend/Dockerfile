@@ -37,7 +37,9 @@ RUN pip install --no-cache-dir \
     pandas>=2.2.0 \
     croniter>=3.0.0 \
     aiosmtplib>=3.0.0 \
-    jinja2-fragments>=1.0.0
+    jinja2-fragments>=1.0.0 \
+    jsonschema>=4.23.0 \
+    json-logic>=0.7.0
 
 # Diretórios para uploads e logs
 RUN mkdir -p /app/uploads /app/logs /app/frontend/static /app/frontend/templates

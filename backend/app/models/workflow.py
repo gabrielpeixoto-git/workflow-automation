@@ -74,6 +74,12 @@ class Workflow(BaseModel):
         nullable=False,
         index=True,
     )
+    trigger_type: Mapped[str] = mapped_column(
+        String(30),
+        default="manual",
+        nullable=False,
+        index=True,
+    )
     tags: Mapped[list[str]] = mapped_column(
         JSONB,
         default=list,

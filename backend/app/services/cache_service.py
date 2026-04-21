@@ -85,12 +85,12 @@ class CacheService:
         try:
             data = await self.redis.get(key)
             if data:
-                logger.debug("cache_hit", key=key)
+                logger.debug(f"cache_hit: {key}")
                 return self._deserialize(data)
-            logger.debug("cache_miss", key=key)
+            logger.debug(f"cache_miss: {key}")
             return None
         except Exception as e:
-            logger.error("cache_get_error", key=key, error=str(e))
+            logger.error(f"cache_get_error: {key}, error={e}")
             return None
 
     async def set(
@@ -111,20 +111,20 @@ class CacheService:
         try:
             data = self._serialize(value)
             result = await self.redis.set(key, data, ex=ttl, nx=nx)
-            logger.debug("cache_set", key=key, ttl=ttl, success=bool(result))
+            logger.debug(f"cache_set: {key}, ttl={ttl}, success={bool(result)}")
             return bool(result)
         except Exception as e:
-            logger.error("cache_set_error", key=key, error=str(e))
+            logger.error(f"cache_set_error: {key}, error={e}")
             return False
 
     async def delete(self, key: str) -> bool:
         """Delete key from cache."""
         try:
             result = await self.redis.delete(key)
-            logger.debug("cache_delete", key=key, deleted=bool(result))
+            logger.debug(f"cache_delete: {key}, deleted={bool(result)}")
             return bool(result)
         except Exception as e:
-            logger.error("cache_delete_error", key=key, error=str(e))
+            logger.error(f"cache_delete_error: {key}, error={e}")
             return False
 
     async def delete_pattern(self, pattern: str) -> int:
@@ -133,11 +133,11 @@ class CacheService:
             keys = await self.redis.keys(pattern)
             if keys:
                 result = await self.redis.delete(*keys)
-                logger.debug("cache_delete_pattern", pattern=pattern, deleted=result)
+                logger.debug(f"cache_delete_pattern: {pattern}, deleted={result}")
                 return result
             return 0
         except Exception as e:
-            logger.error("cache_delete_pattern_error", pattern=pattern, error=str(e))
+            logger.error(f"cache_delete_pattern_error: {pattern}, error={e}")
             return 0
 
     async def exists(self, key: str) -> bool:
@@ -146,7 +146,7 @@ class CacheService:
             result = await self.redis.exists(key)
             return bool(result)
         except Exception as e:
-            logger.error("cache_exists_error", key=key, error=str(e))
+            logger.error(f"cache_exists_error: {key}, error={e}")
             return False
 
     async def ttl(self, key: str) -> int:
@@ -154,7 +154,7 @@ class CacheService:
         try:
             return await self.redis.ttl(key)
         except Exception as e:
-            logger.error("cache_ttl_error", key=key, error=str(e))
+            logger.error(f"cache_ttl_error: {key}, error={e}")
             return -2
 
     async def incr(self, key: str, amount: int = 1) -> int:
@@ -162,7 +162,7 @@ class CacheService:
         try:
             return await self.redis.incrby(key, amount)
         except Exception as e:
-            logger.error("cache_incr_error", key=key, error=str(e))
+            logger.error(f"cache_incr_error: {key}, error={e}")
             return 0
 
     async def expire(self, key: str, ttl: int) -> bool:
@@ -171,7 +171,7 @@ class CacheService:
             result = await self.redis.expire(key, ttl)
             return bool(result)
         except Exception as e:
-            logger.error("cache_expire_error", key=key, error=str(e))
+            logger.error(f"cache_expire_error: {key}, error={e}")
             return False
 
     async def ping(self) -> bool:
@@ -180,7 +180,7 @@ class CacheService:
             result = await self.redis.ping()
             return result
         except Exception as e:
-            logger.error("cache_ping_error", error=str(e))
+            logger.error(f"cache_ping_error: {e}")
             return False
 
     def cached(

@@ -350,7 +350,7 @@ pytest tests/unit/test_actions.py -v
 - **Fixtures**: `tests/conftest.py` - Configurações compartilhadas
 
 ## 📅 Data da Última Atualização
-2026-04-21 02:17
+2026-04-21 15:57
 
 ---
 

@@ -10,7 +10,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.logging_config import get_logger
 from app.models.integration import Integration, IntegrationType
-from app.models.workflow_step import WorkflowStep
+from app.models.workflow import WorkflowStep
 from app.services.integration_service import IntegrationService, SlackIntegration, DiscordIntegration, EmailSMTPIntegration
 
 logger = get_logger(__name__)

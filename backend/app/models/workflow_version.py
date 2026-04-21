@@ -90,6 +90,16 @@ class WorkflowVersion(BaseModel):
     organization = relationship("Organization", back_populates="workflow_versions")
     creator = relationship("User", back_populates="workflow_versions")
     previous_version = relationship("WorkflowVersion", remote_side=[id])
+    diffs_from = relationship(
+        "WorkflowDiff",
+        foreign_keys="WorkflowDiff.from_version_id",
+        back_populates="from_version",
+    )
+    diffs_to = relationship(
+        "WorkflowDiff",
+        foreign_keys="WorkflowDiff.to_version_id",
+        back_populates="to_version",
+    )
 
 
 class WorkflowDiff(BaseModel):
