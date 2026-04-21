@@ -237,7 +237,7 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 
 ## 👨‍💻 Autor
 
-**Gabriel Campos** - [@gabrielcampos](https://linkedin.com/in/gabrielcampos)
+**Gabriel Peixoto** - https://www.linkedin.com/in/gabriel-azambuja-peixoto-49165b355/
 
 ---
 
