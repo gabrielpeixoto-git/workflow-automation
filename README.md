@@ -1,3 +1,4 @@
+<img width="1919" height="986" alt="Captura de tela 2026-04-21 155522" src="https://github.com/user-attachments/assets/094acf84-7772-424b-85a7-133ecde56886" />
 # 🚀 Workflow Automation Platform
 
 [![Python](https://img.shields.io/badge/Python-3.12+-blue.svg)](https://python.org)
@@ -216,16 +217,15 @@ docker-compose exec api pytest --cov=app
 docker-compose exec api pytest tests/unit/test_workflow_service.py -v
 ```
 
-## 📈 Screenshots
+## 📈 Screenshots do Programa
 
-### Dashboard
-![Dashboard](docs/assets/screenshot-dashboard.png)
+<img width="1919" height="989" alt="Captura de tela 2026-04-20 113227" src="https://github.com/user-attachments/assets/83a90c08-fa20-43be-a954-76a75377a722" />
 
-### Workflow Editor
-![Workflow Editor](docs/assets/screenshot-workflow.png)
+<img width="1918" height="986" alt="Captura de tela 2026-04-21 155541" src="https://github.com/user-attachments/assets/37142c52-fa8f-449c-ba01-b5ffd8aef8dd" />
 
-### Execution Timeline
-![Timeline](docs/assets/screenshot-timeline.png)
+<img width="1919" height="945" alt="Captura de tela 2026-04-21 155553" src="https://github.com/user-attachments/assets/336ef81f-d997-4012-ab32-5fc8e7565f2e" />
+
+<img width="1919" height="989" alt="Captura de tela 2026-04-21 155621" src="https://github.com/user-attachments/assets/0eea618f-35eb-4a47-952c-3577530e209f" />
 
 ## 🤝 Contributing
 
