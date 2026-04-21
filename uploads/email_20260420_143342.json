@@ -1,0 +1,10 @@
+{
+  "to": "admin@example.com",
+  "subject": "Teste de Configuração SMTP - Workflow Automation",
+  "body": "Olá Admin User,\n\nEste é um email de teste do sistema Workflow Automation.\n\n✅ Se você está recebendo este email, a configuração SMTP está funcionando corretamente!\n\nDetalhes:\n- Usuário: admin@example.com\n- Horário: 2026-04-20 14:33:42.559570\n- Servidor SMTP: sandbox.smtp.mailtrap.io:587\n\nAtenciosamente,\nSistema Workflow Automation\n",
+  "cc": "",
+  "bcc": "",
+  "is_html": false,
+  "from": "test@workflow.local",
+  "timestamp": "2026-04-20T14:33:42.600390"
+}
